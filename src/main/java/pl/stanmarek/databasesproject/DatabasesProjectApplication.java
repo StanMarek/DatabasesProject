@@ -10,5 +10,4 @@ public class DatabasesProjectApplication {
         SpringApplication.run(DatabasesProjectApplication.class, args);
         System.out.println("hello");
     }
-
 }
