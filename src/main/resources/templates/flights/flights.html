@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Flights</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Plane</th>
+        <th>Opinion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="flight:${flights}">
+        <td th:text="${flight.getId()}"></td>
+        <td th:text="${flight.getDatetime()}"></td>
+        <td>
+            <table>
+                <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${flight.getStartingAirport().getAddress().getCountry()}"></td>
+                    <td th:text="${flight.getStartingAirport().getAddress().getCity()}"></td>
+                    <td th:text="${flight.getStartingAirport().getAddress().getStreetName()}"></td>
+                    <td th:text="${flight.getStartingAirport().getAddress().getNumber()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+            <table>
+                <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${flight.getDestinationAirport().getAddress().getCountry()}"></td>
+                    <td th:text="${flight.getDestinationAirport().getAddress().getCity()}"></td>
+                    <td th:text="${flight.getDestinationAirport().getAddress().getStreetName()}"></td>
+                    <td th:text="${flight.getDestinationAirport().getAddress().getNumber()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <th>Airline</th>
+                    <td th:text="${flight.getPlane().getAirline()}"></td>
+                </tr>
+                <tr>
+                    <th>Seats</th>
+                    <td th:text="${flight.getPlane().getSeats()}"></td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <a th:href="@{'/opinions/plane'(id=${flight.getPlane().getId()})}">&nbsp;Opinions&nbsp;</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

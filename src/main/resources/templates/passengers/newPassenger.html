@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowy pasazer</title>
+</head>
+<body>
+
+<h1>Dodaj nowego pasazera</h1>
+<!--
+<form action="#" th:action="@{/passengers/new}" th:object="${passenger}" method="post">
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>Surname: <input type="text" th:field="*{surname}" /></p>
+    <p>E-mail: <input type="text" th:field="*{email}"/></p>
+    <p><input type="submit" value="Dodaj"/> <input type="reset" value="Reset"/></p>
+</form>-->
+
+<form action="#" th:action="@{/passengers/new}" th:object="${passenger}" method="post">
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <th>Surname:</th>
+            <td><input type="text" th:field="*{surname}"/></td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td><input type="text" th:field="*{email}"/></td>
+        </tr>
+        <p><input type="submit" value="Dodaj"/> <input type="reset" value="Reset"/></p>
+    </table>
+</form>
+
+</body>
+</html>

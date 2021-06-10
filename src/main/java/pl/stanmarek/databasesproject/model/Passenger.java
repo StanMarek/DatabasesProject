@@ -1,16 +1,29 @@
 package pl.stanmarek.databasesproject.model;
 
+import com.sun.istack.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "passengers")
 public class Passenger {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @NotNull
     private String name;
+
+    @NotNull
     private String surname;
+
+    @Column(unique = true)
+    @NotNull
     private String email;
 
     public Passenger() {

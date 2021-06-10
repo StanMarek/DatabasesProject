@@ -1,9 +1,9 @@
 package pl.stanmarek.databasesproject.repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import pl.stanmarek.databasesproject.model.Opinion;
+import pl.stanmarek.databasesproject.model.Reservation;
 
 @Repository
-public interface ReservationRepo extends JpaRepository<Opinion, Long> {
+public interface ReservationRepo extends CrudRepository<Reservation, Long> {
 }

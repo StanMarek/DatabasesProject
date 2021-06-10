@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Opinions</h1>
+<!--<a href="">Add opinion</a>-->
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Flight</th>
+    <th>Passenger</th>
+    <th>Context</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr  th:each="opinion:${opinions}">
+    <td th:text="${opinion.getId()}"></td>
+    <td>
+      <table>
+        <tr>
+          <th>ID:</th>
+          <td th:text="${opinion.getFlight().getId()}"></td>
+        </tr>
+        <tr>
+          <th>From:</th>
+          <td>
+            <table>
+              <thead>
+              <tr>
+                <th>Country</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>Number</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td th:text="${opinion.getFlight().getStartingAirport().getAddress().getCountry()}"></td>
+                <td th:text="${opinion.getFlight().getStartingAirport().getAddress().getCity()}"></td>
+                <td th:text="${opinion.getFlight().getStartingAirport().getAddress().getStreetName()}"></td>
+                <td th:text="${opinion.getFlight().getStartingAirport().getAddress().getNumber()}"></td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <th>To:</th>
+          <td>
+            <table>
+              <thead>
+              <tr>
+                <th>Country</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>Number</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td th:text="${opinion.getFlight().getDestinationAirport().getAddress().getCountry()}"></td>
+                <td th:text="${opinion.getFlight().getDestinationAirport().getAddress().getCity()}"></td>
+                <td th:text="${opinion.getFlight().getDestinationAirport().getAddress().getStreetName()}"></td>
+                <td th:text="${opinion.getFlight().getDestinationAirport().getAddress().getNumber()}"></td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <th>Date:</th>
+          <td th:text="${opinion.getFlight().getDatetime()}"></td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <th>Name:</th>
+          <td th:text="${opinion.getPassenger().getName()}"></td>
+        </tr>
+        <tr>
+          <th>Surname:</th>
+          <td th:text="${opinion.getPassenger().getSurname()}"></td>
+        </tr>
+      </table>
+    </td>
+    <td th:text="${opinion.getText()}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

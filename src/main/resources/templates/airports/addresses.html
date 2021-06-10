@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Addresses</h1>
+<p><a href="/airports">See Airports</a></p>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Country</th>
+        <th>City</th>
+        <th>Street</th>
+        <th>Number</th>
+        <th>Airport</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="address:${addresses}">
+        <td th:text="${address.getId()}"></td>
+        <td th:text="${address.getCountry()}"></td>
+        <td th:text="${address.getCity()}"></td>
+        <td th:text="${address.getStreetName()}"></td>
+        <td th:text="${address.getNumber()}"></td>
+        <td th:text="${address.getAirport().getName()}"></td>
+        <!--<td>
+            <a th:href="@{'/delete/id=' + ${passenger.getId()}}">Delete</a>
+            <p></p>
+            <a th:href="@{'/update/id=' + ${passenger.getId()}}">Edit</a>
+        </td>-->
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

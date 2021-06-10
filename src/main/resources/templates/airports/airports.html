@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Airports</h1>
+<p><a href="/addresses">See addresses</a></p>
+<table class="table1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="airport:${airports}">
+        <td th:text="${airport.getId()}"></td>
+        <td th:text="${airport.getName()}"></td>
+        <td>
+            <table>
+                <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${airport.getAddress().getCountry()}"></td>
+                    <td th:text="${airport.getAddress().getCity()}"></td>
+                    <td th:text="${airport.getAddress().getStreetName()}"></td>
+                    <td th:text="${airport.getAddress().getNumber()}"></td>
+               </tr>
+                </tbody>
+            </table>
+        </td>
+        <!--<td>
+            <a th:href="@{'/delete/id=' + ${passenger.getId()}}">Delete</a>
+            <p></p>
+            <a th:href="@{'/update/id=' + ${passenger.getId()}}">Edit</a>
+        </td>-->
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

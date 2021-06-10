@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+        table, th, td {
+            border: 1px solid darkblue;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>New passenger:</h1>
+
+<table>
+    <tr>
+        <th>Name:</th>
+        <td th:text="${passenger.getName()}"></td>
+    </tr>
+    <tr>
+        <th>Surname:</th>
+        <td th:text="${passenger.getSurname()}"></td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td th:text="${passenger.getEmail()}"></td>
+    </tr>
+</table>
+
+  <a href="/passengers">All passengers</a><br>
+  <a href="/passengers/new">Add another passenger</a>
+</body>
+</html>
